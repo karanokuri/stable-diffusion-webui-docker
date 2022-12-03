@@ -29,7 +29,13 @@ services:
     build: ./services/AUTOMATIC1111
     image: sd-auto:18
     environment:
-      - CLI_ARGS=--allow-code --medvram --xformers --enable-insecure-extension-access
+      CLI_ARGS: >-
+        --allow-code
+        --enable-insecure-extension-access
+        --medvram
+        --no-half
+        --precision full
+        --xformers
 
   auto-cpu:
     <<: *automatic
